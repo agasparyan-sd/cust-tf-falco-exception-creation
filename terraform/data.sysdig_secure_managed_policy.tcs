@@ -1,0 +1,191 @@
+# data.sysdig_secure_managed_policy.tcs:
+data "sysdig_secure_managed_policy" "tcs" {
+    [1m[0mdescription[0m[0m           = "This policy contains rules which Sysdig considers High Confidence of a security incident. They are tightly coupled to common attacker TTP's. They have been designed to minimize false positives but may still result in some depending on your environment."
+    [1m[0menabled[0m[0m               = true
+    [1m[0mid[0m[0m                    = 10016760
+    [1m[0mname[0m[0m                  = "Sysdig Runtime Threat Detection"
+    [1m[0mnotification_channels[0m[0m = []
+    [1m[0mrules[0m[0m                 = [
+        {
+            enabled = true
+            name    = "Base64-encoded Python Script Execution"
+        },
+        {
+            enabled = true
+            name    = "Detect release_agent File Container Escapes"
+        },
+        {
+            enabled = true
+            name    = "Unprivileged Delegation of Page Faults Handling to a Userspace Process"
+        },
+        {
+            enabled = true
+            name    = "Execution from /dev/shm"
+        },
+        {
+            enabled = true
+            name    = "Find AWS Credentials"
+        },
+        {
+            enabled = true
+            name    = "Linux Kernel Module Injection Detected"
+        },
+        {
+            enabled = true
+            name    = "Modify ld.so.preload"
+        },
+        {
+            enabled = true
+            name    = "Mount Launched in Privileged Container"
+        },
+        {
+            enabled = true
+            name    = "Reconnaissance attempt to find SUID binaries"
+        },
+        {
+            enabled = true
+            name    = "Search Private Keys or Passwords"
+        },
+        {
+            enabled = true
+            name    = "Create Hardlink Over Sensitive Files"
+        },
+        {
+            enabled = true
+            name    = "Packet socket created in container"
+        },
+        {
+            enabled = true
+            name    = "Java Process Class File Download"
+        },
+        {
+            enabled = true
+            name    = "Kernel startup modules changed"
+        },
+        {
+            enabled = true
+            name    = "Base64'd ELF file on Command Line"
+        },
+        {
+            enabled = true
+            name    = "Netcat Remote Code Execution in Container"
+        },
+        {
+            enabled = true
+            name    = "Polkit Local Privilege Escalation Vulnerability (CVE-2021-4034)"
+        },
+        {
+            enabled = true
+            name    = "Possible Backdoor using BPF"
+        },
+        {
+            enabled = true
+            name    = "Suspicious Cron Modification"
+        },
+        {
+            enabled = true
+            name    = "Detect malicious cmdlines"
+        },
+        {
+            enabled = true
+            name    = "Base64-encoded Shell Script Execution"
+        },
+        {
+            enabled = true
+            name    = "Create Symlink Over Sensitive Files"
+        },
+        {
+            enabled = true
+            name    = "Debugfs Launched in Privileged Container"
+        },
+        {
+            enabled = true
+            name    = "Detect curl Using Socks Proxy"
+        },
+        {
+            enabled = true
+            name    = "eBPF Program Loaded into Kernel"
+        },
+        {
+            enabled = true
+            name    = "Sudo Potential Privilege Escalation"
+        },
+        {
+            enabled = true
+            name    = "Suspicious Home Directory Creation"
+        },
+        {
+            enabled = true
+            name    = "Tampering with Security Software in Container"
+        },
+        {
+            enabled = true
+            name    = "Detect reconnaissance scripts"
+        },
+        {
+            enabled = true
+            name    = "PTRACE anti-debug attempt"
+        },
+        {
+            enabled = true
+            name    = "PTRACE attached to process"
+        },
+        {
+            enabled = true
+            name    = "GPG Key Reconnaissance"
+        },
+        {
+            enabled = true
+            name    = "nsenter Container Escape"
+        },
+        {
+            enabled = true
+            name    = "Dump memory for credentials"
+        },
+        {
+            enabled = true
+            name    = "Unexpected Connection from legitimate Process/Port"
+        },
+        {
+            enabled = true
+            name    = "Diamorphine Rootkit Activity"
+        },
+        {
+            enabled = true
+            name    = "Contact EC2 Instance Metadata Service From Container"
+        },
+        {
+            enabled = true
+            name    = "Detect cloned process by PRoot"
+        },
+        {
+            enabled = true
+            name    = "Debugfs Launched on Host"
+        },
+        {
+            enabled = true
+            name    = "Suspicious OpenSSL Shared Object Loaded"
+        },
+        {
+            enabled = true
+            name    = "Download and launch remote file copy tools in container"
+        },
+        {
+            enabled = true
+            name    = "Find Azure Credentials"
+        },
+        {
+            enabled = true
+            name    = "Find GCP Credentials"
+        },
+        {
+            enabled = true
+            name    = "Fileless Malware Detected (memfd)"
+        },
+    ]
+    [1m[0mseverity[0m[0m              = 3
+    [1m[0mtype[0m[0m                  = "falco"
+
+    actions {
+    }
+}[0m[0m
