@@ -33,7 +33,7 @@ resource "sysdig_secure_rule_falco" "custom_dev_rule" {
 #  type                 = "falco"
 #}
 
-Create Custom Policy for Dev
+#Create Custom Policy for Dev
 resource "sysdig_secure_custom_policy" "dev_policy" {
   name = "Dev Scoped Policy"
   description = "Dev Specific Policy for testing a new rule"
