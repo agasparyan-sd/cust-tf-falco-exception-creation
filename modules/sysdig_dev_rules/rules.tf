@@ -33,22 +33,22 @@ resource "sysdig_secure_rule_falco" "custom_dev_rule" {
 #  type                 = "falco"
 #}
 
-# Create Custom Policy for Dev
-# resource "sysdig_secure_custom_policy" "dev_policy" {
-#   name = "Dev Scoped Policy"
-#   description = "Dev Specific Policy for testing a new rule"
-#   severity = 4
-#   enabled = true
-#   runbook = "https://runbook.com"
+Create Custom Policy for Dev
+resource "sysdig_secure_custom_policy" "dev_policy" {
+  name = "Dev Scoped Policy"
+  description = "Dev Specific Policy for testing a new rule"
+  severity = 4
+  enabled = true
+  runbook = "https://runbook.com"
 
-#   // Scope selection
-#   #scope = "container.id != \"\""
-#   scope = "kubernetes.cluster.name in (\"DEV CLUSTER\")"
+  // Scope selection
+  #scope = "container.id != \"\""
+  scope = "kubernetes.cluster.name in (\"DEV CLUSTER\")"
 
-#   // Rule selection
+  // Rule selection
 
-#   rules {
-#     name = sysdig_secure_rule_falco.custom_dev_rule.name
-#     enabled = true
-#   }
-# }
+  rules {
+    name = sysdig_secure_rule_falco.custom_dev_rule.name
+    enabled = true
+  }
+}
