@@ -1,8 +1,0 @@
-terraform workspace select dev
-terraform apply -var-file="var_dev.tfvars" --auto-approve
-terraform destroy -var-file="var_dev.tfvars" --auto-approve
-
-
-terraform workspace select prod
-terraform apply -var-file="var_prod.tfvars" --auto-approve
-terraform destroy -var-file="var_prod.tfvars" --auto-approve
