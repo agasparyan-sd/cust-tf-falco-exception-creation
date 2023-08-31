@@ -1,22 +1,23 @@
 
 # Get Rule
-data "sysdig_secure_rule_falco" "managed_rule" {
+data "sysdig_secure_rule_falco" "this" {
   # Get Managed rule
   name = "${var.rule_name}"
 }
 
 # Duplicate Managed Rule 
-resource "sysdig_secure_rule_falco" "custom_dev_rule" {
-  name = "${data.sysdig_secure_rule_falco.managed_rule.name}_${terraform.workspace}"
+resource "sysdig_secure_rule_falco" "this" {
+  count = var.env != "prod" ? 1 : 0
+  name = "${data.sysdig_secure_rule_falco.this.name}_${var.env}"
   description = "Dev"
-  condition = data.sysdig_secure_rule_falco.managed_rule.condition
+  condition = data.sysdig_secure_rule_falco.this.condition
   tags = []
   priority = "notice"
   output = "foo"
   source = "syscall"
 
   dynamic "exceptions" {
-    for_each = data.sysdig_secure_rule_falco.managed_rule.exceptions
+    for_each = data.sysdig_secure_rule_falco.this.exceptions
     content {
       name = exceptions.value.name
       fields = exceptions.value.fields
@@ -34,21 +35,22 @@ resource "sysdig_secure_rule_falco" "custom_dev_rule" {
 #}
 
 #Create Custom Policy for Dev
-resource "sysdig_secure_custom_policy" "dev_policy" {
-  name = "Dev Scoped Policy"
-  description = "Dev Specific Policy for testing a new rule"
+resource "sysdig_secure_custom_policy" "this" {
+  count = var.env != "prod" ? 1 : 0
+  name = "Test Policy for ${data.sysdig_secure_rule_falco.this.name}"
+  description = "Test policy for ${data.sysdig_secure_rule_falco.this.name}"
   severity = 4
   enabled = true
   runbook = "https://runbook.com"
 
   // Scope selection
   #scope = "container.id != \"\""
-  scope = "kubernetes.cluster.name in (\"DEV CLUSTER\")"
+  scope = var.test_policy_scope
 
   // Rule selection
 
   rules {
-    name = sysdig_secure_rule_falco.custom_dev_rule.name
+    name = sysdig_secure_rule_falco.this[0].name
     enabled = true
   }
 }
