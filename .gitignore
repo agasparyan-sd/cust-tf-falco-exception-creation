@@ -1,5 +1,9 @@
-terraform/.terraform
 terraform/terraform.tfstate.d/dev/terraform.tfstate
 terraform/terraform.tfstate.d/dev/terraform.tfstate.backup
 terraform/terraform.tfstate.d/prod/terraform.tfstate
 terraform/terraform.tfstate.d/prod/terraform.tfstate.backup
+terraform/.terraform/environment
+terraform/.terraform/modules/modules.json
+terraform/.terraform/providers/registry.terraform.io/sysdiglabs/sysdig/1.12.0/darwin_amd64/LICENSE
+terraform/.terraform/providers/registry.terraform.io/sysdiglabs/sysdig/1.12.0/darwin_amd64/README.md
+terraform/.terraform/providers/registry.terraform.io/sysdiglabs/sysdig/1.12.0/darwin_amd64/terraform-provider-sysdig_v1.12.0
