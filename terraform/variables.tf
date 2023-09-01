@@ -1,9 +1,3 @@
-variable "env" {
-    type = string
-    default = "dev"
-    description = "Environment"
-}
-
 variable "sysdig_secure_token" {
  type = string
  default = "<token>" # any value that is new

@@ -3,5 +3,5 @@ output "rule_name" {
 }
 
 output "generated_rule_name" {
-  value = sysdig_secure_rule_falco.this[0].name
+  value = "${terraform.workspace}" != "prod" ? sysdig_secure_rule_falco.this[0].name : ""
 }
