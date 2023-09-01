@@ -1,4 +1,4 @@
-module "prepare_for_new_exception" {
+module "read_shell_configuration_file" { // CHANGE
   source = "../modules/sysdig_dev_rules"
   env = "${terraform.workspace}"
   rule_name = "Read Shell Configuration File" // CHANGE
@@ -6,12 +6,11 @@ module "prepare_for_new_exception" {
 }
 
 # Add custom exception to newly created rule
-resource "sysdig_secure_rule_falco" "add_custom_exception_1" { // Resource Name Must be Unique across files in the project
-  #if workspace is dev ad _dev to end of rulename - othewise its just rulname
-  name = "${terraform.workspace}" != "prod" ? module.prepare_for_new_exception.generated_rule_name : module.prepare_for_new_exception.rule_name
+resource "sysdig_secure_rule_falco" "exception_proc_python" { // CHANGE
+  name = "${terraform.workspace}" != "prod" ? module.read_shell_configuration_file.generated_rule_name : module.read_shell_configuration_file.rule_name // CHANGE
   append = true
   exceptions {
-    name   = "my_custom_exception_1" // CHANGE
+    name   = "exception_proc_python" // CHANGE
     fields = ["proc.name"]
     comps  = ["in"]
     values = jsonencode([[["python", "python2", "python3"]]]) # If only one element is provided, it should still needs to be specified as a list of lists.
