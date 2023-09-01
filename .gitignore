@@ -1,1 +1,8 @@
 modules/sysdig_dev_rules/test.txt
+terraform/.terraform/environment
+terraform/.terraform/environment
+terraform/terraform.tfstate.d/dev/terraform.tfstate
+terraform/terraform.tfstate.d/dev/terraform.tfstate.backup
+terraform/terraform.tfstate.d/prod/terraform.tfstate
+terraform/terraform.tfstate.d/prod/terraform.tfstate.backup
+terraform/.terraform/environment
