@@ -16,10 +16,10 @@ Example of New Managed Rule Exception Testing
 Example Rule: Read Shell Configuration File
 filename: read_shell_configuration_file.tf
 Notice the follwing changes need to be done for every new rule file.
-module "read_shell_configuration_file" { // CHANGE
-rule_name = "Read Shell Configuration File" // CHANGE
-name = "${terraform.workspace}" != "prod" ? module.read_shell_configuration_file.generated_rule_name : module.read_shell_configuration_file.rule_name // CHANGE
-name   = "exception_proc_python" // CHANGE
+- module "read_shell_configuration_file" { // CHANGE
+- rule_name = "Read Shell Configuration File" // CHANGE
+- name = "${terraform.workspace}" != "prod" ? module.read_shell_configuration_file.generated_rule_name : module.read_shell_configuration_file.rule_name // CHANGE
+- name   = "exception_proc_python" // CHANGE
 
 Once all of the values have been changed.
 
