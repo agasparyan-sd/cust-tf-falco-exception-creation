@@ -1,11 +1,11 @@
 Process:
 
-Inject the Secure Token to github run environments as a Secret
-Example
+Inject the Secure Token to github run environments as a Secret 
+- Example
 export SYSDIG_SECURE_API_TOKEN=<token>
 
 Inject the Secure Sysdig URL to github run environments as a Secret
-Example
+- Example
 export SYSDIG_SECURE_URL=https://us2.app.sysdig.com
 
 Create 2 Workspaces
